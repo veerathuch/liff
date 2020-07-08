@@ -42,7 +42,7 @@
     console.log("Hello World!")
   </script> -->
 
-  <!-- <script src="https://static.line-scdn.net/liff/edge/versions/2.1.13/sdk.js"></script> -->
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.1.13/sdk.js"></script>
   <script>
     function createUniversalLink() {
     }
@@ -75,12 +75,20 @@
     }
 
     function getEnvironment() {
+      document.getElementById("os").append(liff.getos())
+      document.getElementById("language").append(liff.getlanguage())
+      document.getElementById("version").append(liff.getVersion())
+      document.getElementById("accessToken").append(liff.getaccessToken()) //ใช้ไว้เล่น scure
+      document.getElementById("isInClinet").append(liff.isInClient()) //ดูว่าเปิดจาก line หรือ browser return ture/false
+
+
+      
     }
 
     async function main() {
-      alert("LINE Developers x Skooldio")
-      await liff.init({ liffId: "YOUR-LIFF-ID" })
-      // getEnvironment()
+      
+      await liff.init({ liffId: "1654205555-JKd9b1L2" }) //เริ่มที่นี้
+       getEnvironment()
       // getUserProfile()
       // getContext()
       // getFriendship()
